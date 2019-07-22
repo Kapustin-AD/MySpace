@@ -1,0 +1,174 @@
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{pgfmath}
+\usepackage{wrapfig}
+\usepackage{subcaption}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+
+% основные библиотеки tikz
+\usetikzlibrary{
+    arrows,
+    arrows.meta,
+    bending,
+	calc,
+	patterns,
+	intersections,
+	decorations.pathreplacing,
+	decorations.pathmorphing,
+	decorations.text,
+	decorations.markings,
+	shapes,
+	positioning,
+    through,
+    quotes,
+    angles,
+    dateplot
+}
+
+% библиотеки для электричества
+\usetikzlibrary{circuits.ee, circuits.ee.IEC}
+
+% для работы с графиками            
+\pgfplotsset{compat = newest}
+
+% основные используемые стили
+% стиль для стрелки
+\tikzset{
+    >=latex,
+    % платформа: пол или потолок  
+    interface/.style = {
+        postaction = {
+            draw,
+            decorate,
+            decoration = {
+                border,
+                angle = 45,
+                amplitude = 0.2cm,
+                segment length = 1mm
+            }
+        }
+    },
+    perpinterface/.style = {
+        postaction = {
+            draw,
+            decorate,
+            decoration = {
+                ticks,
+                raise = 0.07cm,
+                amplitude = 0.07cm,
+                segment length = 1mm
+            }
+        }
+    },
+    % пружина
+    spring/.style = {
+        decorate,
+        decoration = {
+            coil,
+            amplitude = 1mm,
+            segment length = 1mm
+        }
+    },
+	% заряд, вершина, просто точка
+    dot/.style = {
+        inner sep = 0mm,
+        minimum size = 0.18cm,
+        fill,
+        circle
+    },
+    % граница воды
+    water edge/.style = {
+    	draw,
+		decorate,
+		decoration = {
+			snake,
+			amplitude = 0.4,
+			segment length = 10
+		}
+    },
+	% стрелка в середине отрезка
+    marrow/.style = {
+        postaction = {
+            draw,
+            decorate,
+            decoration = {
+                markings,
+                mark = at position 0.6 with {\arrow{latex}}
+            }
+        }
+    }
+}
+
+
+\tikzstyle{dotnode} = [draw, fill, inner sep = 0pt, minimum size = 1mm, circle]
+\tikzstyle{termnode} = [draw, fill = white, inner sep = 0pt, minimum size = 1.5mm, circle]
+
+\newcommand{\termcircuit}[2]{
+	\node[termnode] at ({#1}, {#2}) {};
+    \draw ({#1 + 0.12}, {#2 + 0.15}) -- ({#1 - 0.12}, {#2 - 0.15});
+}
+
+
+
+
+% амперметр
+\tikzset{circuit declare symbol = ammeter}
+\tikzset{
+    set ammeter graphic = {
+        draw,
+        generic circle IEC,
+        minimum size = 5mm,
+        fill = white,
+        info = center:A
+    }
+} 
+
+% вольтметр
+\tikzset{circuit declare symbol = voltmeter}
+\tikzset{
+    set voltmeter graphic = {
+        draw,
+        generic circle IEC,
+        minimum size = 5mm,
+        fill = white,
+        info = center:V
+    }
+} 
+
+% кружок
+\tikzset{circuit declare symbol = meter}
+\tikzset{
+    set meter graphic = {
+        draw,
+        generic circle IEC,
+        minimum size = 5mm,
+        fill = white
+    }
+} 
+
+
+\newcommand{\platform}[3][fill = none]{
+	\draw [draw = none, #1 ] 
+		#2 -- ($#2!0.15cm!90:#3$) -- ($#3!0.15cm!-90:#2$) -- #3;
+	\fill [pattern = north west lines] 
+		#2 -- ($#2!0.15cm!90:#3$) -- ($#3!0.15cm!-90:#2$) -- #3;
+	\draw [very thick] #2 -- #3
+}
+
+% pattern для отрисовки воды
+\pgfdeclarepatternformonly{water}
+    {\pgfqpoint{0pt}{0pt}}
+    {\pgfqpoint{6pt}{6pt}}
+    {\pgfqpoint{6pt}{6pt}}
+    {
+        \pgfsetlinewidth{0.3pt}
+        \pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+        \pgfpathlineto{\pgfqpoint{2pt}{0pt}}
+        \pgfpathmoveto{\pgfqpoint{3pt}{3pt}}
+        \pgfpathlineto{\pgfqpoint{6pt}{3pt}}
+        \pgfusepath{stroke}
+    }
+
+% формат чисел в графиках \begin{axis}...\end{axis}
+\tikzset{/pgf/number format/use comma}

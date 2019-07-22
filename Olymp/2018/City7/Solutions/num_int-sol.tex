@@ -1,0 +1,213 @@
+\begin{figure}[h!]
+	\begin{minipage}{0.49\linewidth}
+	\centering
+	\begin{tikzpicture}[scale=1,
+	/pgfplots/axis labels at tip/.style={ 
+		xlabel style={ at={ (current axis.right of origin) }, 
+			yshift = 1 ex,
+			anchor = south east,
+			fill=white}, 
+		ylabel style={ at={ (current axis.above origin) }, 
+			xshift = 1 ex, 
+			anchor = north west,
+			fill = white} } ]
+	\begin{axis}[
+	grid style={line width=.1pt, draw=gray!80},
+		line width = 2pt, 
+		axis x line = middle,
+		axis y line = middle,
+		axis labels at tip,
+		xmin = 0, xmax = 95,
+		ymin = 0, ymax = 0.55,
+		xtick = {0, 10, ..., 100},
+		ytick = {0, 0.1, ..., 0.6},
+		xlabel = {$t,\text{ дней }$},
+		ylabel = {$Q,\text{ м}^3\text{/день}$},
+		grid = both,
+		major grid style={line width = 1.3pt,draw=black!50},
+		minor grid style={line width=.4pt, draw=black!50},
+		major tick length = 7pt,
+	    every major tick/.style={
+			black,
+	        line width = 2pt,
+        },
+		minor tick length = 4pt,
+	    every minor tick/.style={
+			black,
+	        line width = 1pt,
+        },
+		minor tick num = 0]
+	\fill[blue] (20, 0.1) circle(1mm); 
+	\fill[blue] (50, 0.2) circle(1mm); 
+	\fill[blue] (60, 0.3) circle(1mm); 
+	\fill[blue] (90, 0.4) circle(1mm); 
+ 	\draw[blue, line width = 1pt] (0, 0) to[in=180, out=30] ( 20, 0.1) to[in = 270, out = 0] (50, 0.2) to[in = 200, out = 90] (60, 0.3) to[in = 240,out = 20] (90, 0.4);
+		
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Пример функции расхода дров от времени.}
+	\end{minipage}
+	\begin{minipage}{0.49\linewidth}
+	\centering
+	\begin{tikzpicture}[scale=1,
+	/pgfplots/axis labels at tip/.style={ 
+		xlabel style={ at={ (current axis.right of origin) }, 
+			yshift = 1 ex,
+			anchor = south east,
+			fill=white}, 
+		ylabel style={ at={ (current axis.above origin) }, 
+			xshift = 1 ex, 
+			anchor = north west,
+			fill = white} } ]
+	\begin{axis}[
+	grid style={line width=.1pt, draw=gray!80},
+		line width = 2pt, 
+		axis x line = middle,
+		axis y line = middle,
+		axis labels at tip,
+		xmin = 0, xmax = 95,
+		ymin = 0, ymax = 0.55,
+		xtick = {0, 10, ..., 100},
+		ytick = {0, 0.1, ..., 0.6},
+		xlabel = {$t,\text{ дней }$},
+		ylabel = {$Q,\text{ м}^3\text{/день}$},
+		grid = both,
+		major grid style={line width = 1.3pt,draw=black!50},
+		minor grid style={line width=.4pt, draw=black!50},
+		major tick length = 7pt,
+	    every major tick/.style={
+			black,
+	        line width = 2pt,
+        },
+		minor tick length = 4pt,
+	    every minor tick/.style={
+			black,
+	        line width = 1pt,
+        },
+		minor tick num = 0]
+	\fill[blue] (20, 0.1) circle(1mm); 
+	\fill[blue] (50, 0.2) circle(1mm); 
+	\fill[blue] (60, 0.3) circle(1mm); 
+	\fill[blue] (90, 0.4) circle(1mm); 
+ 	\draw[blue, line width = 1pt] (0, 0) to[in=180, out=30] ( 20, 0.1) to[in = 270, out = 0] (50, 0.2) to[in = 200, out = 90] (60, 0.3) to[in = 240,out = 20] (90, 0.4);	
+ 	\fill[blue!80!, opacity = 0.2] (0, 0) rectangle +(20, 0.1);
+ 	\fill[blue!80!, opacity = 0.2] (20, 0.1) rectangle +(30, 0.1);
+ 	\fill[blue!80!, opacity = 0.2] (50, 0.2) rectangle +(10, 0.1);
+ 	\fill[blue!80!, opacity = 0.2] (60, 0.3) rectangle +(30, 0.1);
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Области, в которых может лежать линия графика.}
+	\end{minipage}
+\end{figure}		
+
+	По условию, расход дров с каждым днем не убывал. Это значит, что он задается линией на графике, проходящей через заданные точки, и, всегда направленной вправо и верх. Тогда можо провести горизональные и вертикальные линии, проходящие через известные нам точки графика, и сам график будет лежать внутри получившихся прямоугольников. 
+	
+	Если бы мы знали всю линию графика, мы могли бы точно найти расход дров как площадь фигуры, ограниченной этим графиком. Чтобы это понять, можно усмотреть явную аналогию с графиком скорости от времени. Но раз нам известны только некоторые условия, задающие целый набор возможных линий расхода дров, нужно найти максимальное и минмальное возможные значения расхода дров. Для этого из набора всех возможных линий следует выбрать те две, которые задают минимальную и максимальную площади. Ясно, что эти линии являются границами нарисованных прямоугольников.
+
+\begin{figure}[h!]
+	\begin{minipage}{0.49\linewidth}
+	\centering
+	\begin{tikzpicture}[scale=1,
+	/pgfplots/axis labels at tip/.style={ 
+		xlabel style={ at={ (current axis.right of origin) }, 
+			yshift = 1 ex,
+			anchor = south east,
+			fill=white}, 
+		ylabel style={ at={ (current axis.above origin) }, 
+			xshift = 1 ex, 
+			anchor = north west,
+			fill = white} } ]
+	\begin{axis}[
+	grid style={line width=.1pt, draw=gray!80},
+		line width = 2pt, 
+		axis x line = middle,
+		axis y line = middle,
+		axis labels at tip,
+		xmin = 0, xmax = 95,
+		ymin = 0, ymax = 0.55,
+		xtick = {0, 10, ..., 100},
+		ytick = {0, 0.1, ..., 0.6},
+		xlabel = {$t,\text{ дней }$},
+		ylabel = {$Q,\text{ м}^3\text{/день}$},
+		grid = both,
+		major grid style={line width = 1.3pt,draw=black!50},
+		minor grid style={line width=.4pt, draw=black!50},
+		major tick length = 7pt,
+	    every major tick/.style={
+			black,
+	        line width = 2pt,
+        },
+		minor tick length = 4pt,
+	    every minor tick/.style={
+			black,
+	        line width = 1pt,
+        },
+		minor tick num = 0]
+	\draw[red] (0, 0) to (0, 0.1) to (20, 0.1) to (20, 0.2) to (50, 0.2) to (50, 0.3) to (60, 0.3) to (60, 0.4) to (90, 0.4);
+	\fill[blue] (20, 0.1) circle(1mm); 
+	\fill[blue] (50, 0.2) circle(1mm); 
+	\fill[blue] (60, 0.3) circle(1mm); 
+	\fill[blue] (90, 0.4) circle(1mm); 	
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Линия, задающая максимальную площадь.}
+	\end{minipage}
+	\begin{minipage}{0.49\linewidth}
+	\centering
+	\begin{tikzpicture}[scale=1,
+	/pgfplots/axis labels at tip/.style={ 
+		xlabel style={ at={ (current axis.right of origin) }, 
+			yshift = 1 ex,
+			anchor = south east,
+			fill=white}, 
+		ylabel style={ at={ (current axis.above origin) }, 
+			xshift = 1 ex, 
+			anchor = north west,
+			fill = white} } ]
+	\begin{axis}[
+	grid style={line width=.1pt, draw=gray!80},
+		line width = 2pt, 
+		axis x line = middle,
+		axis y line = middle,
+		axis labels at tip,
+		xmin = 0, xmax = 95,
+		ymin = 0, ymax = 0.55,
+		xtick = {0, 10, ..., 100},
+		ytick = {0, 0.1, ..., 0.6},
+		xlabel = {$t,\text{ дней }$},
+		ylabel = {$Q,\text{ м}^3\text{/день}$},
+		grid = both,
+		major grid style={line width = 1.3pt,draw=black!50},
+		minor grid style={line width=.4pt, draw=black!50},
+		major tick length = 7pt,
+	    every major tick/.style={
+			black,
+	        line width = 2pt,
+        },
+		minor tick length = 4pt,
+	    every minor tick/.style={
+			black,
+	        line width = 1pt,
+        },
+		minor tick num = 0]
+	\draw[red] (0, 0) to (20, 0) to (20, 0.1) to (50, 0.1) to (50, 0.2) to (60, 0.2) to (60, 0.3) to (90, 0.3) to (90, 0.4);
+	\fill[blue] (20, 0.1) circle(1mm); 
+	\fill[blue] (50, 0.2) circle(1mm); 
+	\fill[blue] (60, 0.3) circle(1mm); 
+	\fill[blue] (90, 0.4) circle(1mm); 
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Линия, задающая минимальную площадь.}
+	\end{minipage}
+\end{figure}
+
+	Теперь для получения ответа осталось только посчитать получившиеся площади. В случае максимального расхода 
+\[
+	P_{max} = \left( 0{,}1 \cdot 20 + 0{,}2 \cdot 30 + 0{,}3 \cdot 10 + 0{,}4 \cdot 30 \right)~\text{м}^3 = 23~\text{м}^3. 
+\]
+В случае минимального
+\[
+	P_{min} = \left( 0{,}1 \cdot 30 + 0{,}2 \cdot 10 + 0{,}3 \cdot 30 + 0{,}4 \cdot 1\right)~\text{м}^3 = 14{,}4~\text{м}^3. 
+\]
+
+\underline{\textbf{Ответ:}} $23~\text{м}^3$ и $14{,}4~\text{м}^3$.

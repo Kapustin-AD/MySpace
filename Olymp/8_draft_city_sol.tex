@@ -1,0 +1,67 @@
+%\input{../../preamble_without_package.tex}
+\input{../../preambula_usepackage.tex}
+\input{../../preamble_grading}
+\usepackage{xfrac}
+\newcommand{\drawhex}[3][1]{
+\begin{scope}[shift={#2}]
+    \foreach \x in {0, ..., 6}
+        \draw [#1] (\x * 60 : #3) to ( {\x * 60 + 60} : #3);    
+\end{scope}
+}
+
+\newcommand{\tri}[1]{
+	\draw #1 --++ (240:1) --++ (0:1) -- #1;
+}
+
+
+\newcommand{\nanobot}[1]{
+	\foreach \x in {1,2,...,8}{
+		\draw[red] #1 --++({\x*360/8 + 45/2}:.125);
+	}
+	\filldraw[red] #1 circle(2pt);
+}
+
+\newcommand{\pyr}[1]{
+	\pgfmathsetmacro{\m}{#1};
+	\foreach \x in {0,1,...,\m}{
+		\foreach \y in {0,...,\x}
+		\draw(\x, 0) --++(60:{\m-\x});
+		\draw(60:\x) --++(-60:\x);
+		\draw(60:\x) --++({\m - \x},0);
+	}
+}
+
+\gradetrue
+
+\begin{document}
+\gradeHead{8}
+\subsection{Равновесие плиток}
+\input{sol/city1}
+\clearpage
+
+\subsection{Нанороботы}
+\input{sol/city2}
+\clearpage
+
+\subsection{Вода и масло}
+\input{sol/city3}
+\clearpage
+
+\subsection{Путь тени}
+\input{sol/city4}
+\clearpage
+
+
+\subsection{Ледовая арена}
+\input{sol/city5}
+\clearpage
+
+\subsection{О, капитан, мой капитан}
+\input{sol/city6}
+\clearpage
+
+\subsection{Курсор}
+\input{sol/city7}
+\clearpage
+
+\end{document}

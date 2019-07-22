@@ -1,0 +1,113 @@
+	Эскалатор можно рассмотреть как два параллельных пути, по которым люди спускаются либо стоя, либо идя пешком. Понятно, что спускаться пешком быстрее. Пусть стоя спускается $N$~человек в минуту, а пешком --- $M~$~человек в минуту. Тогда максимум может спускаться $2M$, минимум $2N$, а в стационарном режиме спускается $N+M$ человек в минуту. 
+	\begin{figure}[h!]
+	\centering
+	\variants{
+	\begin{tikzpicture}[scale=0.92,
+	/pgfplots/axis labels at tip/.style={ 
+		xlabel style={ at={ (current axis.right of origin) }, 
+			yshift = 1 ex,
+			anchor = south east,
+			fill=white}, 
+		ylabel style={ at={ (current axis.above origin) }, 
+			xshift = 1 ex, 
+			anchor = north west,
+			fill = white} } ]
+	\begin{axis}[
+	grid style={line width=0.1pt, draw=gray!80},
+		line width = 2pt, 
+		axis x line = middle,
+		axis y line = middle,
+		axis labels at tip,
+		xmin = 0, xmax = 5.5,
+		ymin = 0, ymax = 55,
+		xtick = {0, 1, ..., 5},
+		ytick = {0, 10, ..., 50},
+		xlabel = {$t,\text{ мин }$},
+		ylabel = {$L,\text{ чел}$},
+		grid = both,
+		major grid style={line width = 1.3pt,draw=black!50},
+		minor grid style={line width=.4pt, draw=black!50},
+		major tick length = 7pt,
+	    every major tick/.style={
+			black,
+	        line width = 2pt,
+        },
+		minor tick length = 4pt,
+	    every minor tick/.style={
+			black,
+	        line width = 1pt,
+        },
+		minor tick num = 0]
+	\draw [line width = 2pt] 
+		(0, 0) to (1, 10) to (2, 50);
+	\draw [line width = 2pt, red] (2, 50) to (4.5, 0);		
+	\end{axis}
+	\end{tikzpicture}
+	}
+	{
+	\begin{tikzpicture}[scale=0.92,
+	/pgfplots/axis labels at tip/.style={ 
+		xlabel style={ at={ (current axis.right of origin) }, 
+			yshift = 1 ex,
+			anchor = south east,
+			fill=white}, 
+		ylabel style={ at={ (current axis.above origin) }, 
+			xshift = 1 ex, 
+			anchor = north west,
+			fill = white} } ]
+	\begin{axis}[
+	grid style={line width=.1pt, draw=gray!80},
+		line width = 2pt, 
+		axis x line = middle,
+		axis y line = middle,
+		axis labels at tip,
+		xmin = 0, xmax = 19,
+		ymin = 0, ymax = 150,
+		xtick = {0, 2, ..., 18},
+		ytick = {0, 20, ..., 140},
+		xlabel = {$t,\text{ мин }$},
+		ylabel = {$L,\text{ чел}$},
+		grid = both,
+		major grid style={line width = 1.3pt,draw=black!50},
+		minor grid style={line width=.4pt, draw=black!50},
+		major tick length = 7pt,
+	    every major tick/.style={
+			black,
+	        line width = 2pt,
+        },
+		minor tick length = 4pt,
+	    every minor tick/.style={
+			black,
+	        line width = 1pt,
+        },
+		minor tick num = 0]
+	\draw [line width = 2pt] 
+		(0, 0) to (2, 40) to (4, 140);
+	\draw [line width = 2pt, red] (4, 140) to (18, 0);	
+	\end{axis}
+	\end{tikzpicture}
+	}
+\end{figure}
+
+Скорость роста очереди на каждом участкке можно определить по графику, поделив изменение ее длины на время, за которое оно произошло. Так, скорость роста очереди на первом участке равна $\variants{10}{20}$ человек в минуту, на втором --- $\variants{40}{50}$ человек в минуту. 
+
+Эту скорость можно связать с количеством спускающихся людей и числом входящих на станцию. Если за минуту на станцию входит $K$ человек, а спускается изначально $N+M$, то скорость роста очереди на первом участке будет равна $K-(N+M)$. 
+
+На втором участке люди стоят на обеих сторонах, а значит всего спускается $2N$ человек в минуту. Скорость роста очереди на втором участке равна $K - 2N$ и на $30$ человек в минуту больше, чем на первом. Значит $M-N = 30$ человек в минуту. 
+
+После двух минут люди стали идти пешком по двум сторонам, и всего спускется $2M$ человек в минуту. Скорость роста очереди на этом участке равна $K - 2M$. Это на $30$ человек в минуту меньше, чем на первом участке, а значит равна $\variants{-20}{-10}$ человек в минуту. 
+
+По графику заметим, что через $\variants{2}{4}$ минуты у эскалатора образовалась очередь из $\variants{50}{140}$ человек. Тогда со скоростью $\variants{20}{10}$ человек в минуту эта очередь сократится до нуля за 
+\begin{equation}
+	t = \frac{\variants{50}{140}~\text{чел}}{\variants{20}{10}~\text{чел/мин}} = \variants{2{,}5}{14}~\text{мин}.
+\end{equation}
+
+\olympanswer{ за \variants{$2{,}5$ минуты}{$14$ минут}.}
+
+\ifgrade
+\begin{grade-env}
+	\grade{3}{Умение находить скорость по графику.}
+	\grade{5}{Нахождение скорости сокращения очереди в третьем режиме.}
+	\grade{2}{Правильный ответ.}
+\end{grade-env}
+\fi

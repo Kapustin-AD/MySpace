@@ -1,0 +1,40 @@
+\begin{tikzpicture}[scale=1,
+	/pgfplots/axis labels at tip/.style={ 
+		xlabel style={ at={ (current axis.right of origin) }, 
+			yshift = 1 ex,
+			anchor = south east,
+			fill=white}, 
+		ylabel style={ at={ (current axis.above origin) }, 
+			xshift = 1 ex, 
+			anchor = north west,
+			fill = white} } ]
+	\begin{axis}[
+	grid style={line width=.1pt, draw=gray!80},
+		line width = 2pt, 
+		axis x line = middle,
+		axis y line = middle,
+		axis labels at tip,
+		xmin = 0, xmax = 1000,
+		ymin = 0, ymax = 110,
+		xtick = {0, 300, ..., 900},
+		ytick = {0, 20, ..., 100},
+		xlabel = {$N,\text{ шт}$},
+		ylabel = {$T,\text{ с }$},
+		grid = both,
+		major grid style={line width = 1.3pt,draw=black!50},
+		minor grid style={line width=.4pt, draw=black!50},
+		major tick length = 7pt,
+	    every major tick/.style={
+			black,
+	        line width = 2pt,
+        },
+		minor tick length = 4pt,
+	    every minor tick/.style={
+			black,
+	        line width = 1pt,
+        },
+		minor tick num = 4]
+	\draw [blue, line width = 1.5pt] 
+		(0, 80) to  (300, 60) to (300, 40) to (900, 20);
+	\end{axis}
+	\end{tikzpicture}

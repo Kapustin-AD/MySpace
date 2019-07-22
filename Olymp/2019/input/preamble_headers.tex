@@ -1,0 +1,106 @@
+%% Флаги, чтобы писать два варианта в одном файле. 
+\newif\iffirst  %% Флаг для первого варианта
+\newif\ifsecond %% Флаг для второго варианта
+\newcommand{\variants}[2]{\iffirst #1\fi\ifsecond #2\fi}
+\usepackage{ifthen}
+\textheight = 790pt			 
+%% Рисование районного тура с двумя шапками:
+%% Следует использовать так:
+%% 		\OlympSetReg{ год в формате 16/17 }{ класс }{ номер варианта }{ условие }
+\newcommand{\OlympSetAll}[4][spb]{
+	\ifthenelse{\equal{#1}{spb}}
+	{\OlympSetRegSPb{#2}{#3}{1}{#4}
+	 \OlympSetRegSPb{#2}{#3}{2}{#4}}
+	{\OlympSetRegRussia{#2}{#3}{1}{#4}
+	 \OlympSetRegRussia{#2}{#3}{2}{#4}}
+}
+\newcommand{\OlympSetRegRussia}[4]{  %% Районный тур всероссийской
+	\ifnum #3=1
+		\firsttrue\secondfalse
+	\else
+		\firstfalse\secondtrue
+	\fi
+	\setcounter{notask}{1}
+	\begin{center}
+		\textsc{ Всероссийская олимпиада школьников по физике 20#1 г. } \\
+		\textsc{ Районный этап } \\
+		\textit{ Решения см. на сайте { \underline{www.physolymp.spb.ru} } } \\
+	\end{center}
+	\vspace{ -1cm }
+	\parbox{ 0.5\textwidth }{ \flushleft  \textsc{#2 класс} }
+	\parbox{ 0.5\textwidth }{ \flushright \textsc{#3-й вариант } } \\[ 0.1cm ]
+	#4
+	\vfill
+	\begin{center}
+		\textsc{Оставьте условие себе!}
+	\end{center}
+		\begin{center}
+		\scriptsize{\textsc{Отпечатано в РИС ГБНОУ <<СПБ ГДТЮ>> 20\rule{10pt}{0.5pt} г. Заказ \rule{30pt}{0.5pt} тираж \rule{15pt}{0.5pt} экз.}}
+	\end{center}
+	\clearpage
+}
+
+\newcommand{\OlympSetRegSPb}[4]{ 	
+	\ifnum #3=1
+		\firsttrue\secondfalse
+	\else
+		\firstfalse\secondtrue
+	\fi
+	\setcounter{notask}{1}
+	\begin{center}
+		\textsc{ Городская открытая олимпиада школьников по физике  20#1 г. } \\
+		\textsc{ Отборочный этап } \\
+		%\textsc{ I городской тур } \\
+		\textit{ Решения см. на сайте { \underline{www.physolymp.spb.ru} } } \\
+	\end{center}
+	\vspace{ -1cm }
+	\parbox{ 0.5\textwidth }{ \flushleft  \textsc{#2 класс } }
+	\parbox{ 0.5\textwidth }{ \flushright \textsc{#3-й вариант } }\\[ 0.1cm ]
+	#4
+	\vfill
+	\begin{center}
+		\textsc{Оставьте условие себе!}
+	\end{center}
+%		\begin{center}
+%		\scriptsize{\textsc{Отпечатано в РИС ГБНОУ <<СПБ ГБДТЮ>> 20\rule{10pt}{0.5pt} г. Заказ \rule{30pt}{0.5pt} тираж \rule{15pt}{0.5pt} экз.}}
+%	\end{center}
+	\clearpage	
+}
+
+
+%% Рисование городского тура с выводом
+
+\newcommand{\OlympHeader}[4]{
+	\setcounter{notask}{1}
+	\begin{center}
+		\textsc{  Городская открытая олимпиада школьников по физике 20#1 г. } \\
+		%\textsc{ Основной этап } \\
+		\textsc{ Теоретический тур } \\
+		\textit{ Решения см. на сайте { \underline{www.physolymp.spb.ru} } } \\
+	\end{center}
+	\vspace{ -1cm }
+	\parbox{ 0.5\textwidth }{ \flushleft  \textsc{#2 класс} }
+	\parbox{ 0.5\textwidth }{ \flushright  \textsc{Первый этап} }
+		#3
+	\vfill
+	\begin{center}
+		\textsc{Оставьте условие себе!}
+	\end{center}
+	\clearpage
+	
+	\begin{center}
+		\textsc{  Городская открытая олимпиада школьников по физике 20#1 г. } \\
+		%\textsc{ Основной этап } \\
+		\textsc{ Теоретический тур } \\
+		\textit{ Решения см. на сайте { \underline{www.physolymp.spb.ru} } } \\
+	\end{center}
+	\vspace{ -1cm }
+	\parbox{ 0.5\textwidth }{ \flushleft  \textsc{8 класс} }
+	\parbox{ 0.5\textwidth }{ \flushright  \textsc{Второй этап} }
+		#4
+	\vfill
+	\begin{center}
+		\textsc{Оставьте условие себе!}
+	\end{center}
+	\clearpage	
+}

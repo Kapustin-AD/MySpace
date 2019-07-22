@@ -1,0 +1,14 @@
+\begin{tikzpicture}[scale = 0.5]
+	\fill[rounded corners = 5, fill = blue!15] (0, 0) -- (0, -7) -- (4, -7) -- (4, 0); 
+	\fill[yellow!50!red!100] (0, -2) rectangle +(4, -3);
+	\fill[white] (0, 0) rectangle +(4, -2);
+	\draw (0, -2) -- (4, -2);
+	\draw (0, -5) -- (4, -5);
+	\draw[thick, rounded corners = 5] (0, 0) -- (0, -7) -- (4, -7) -- (4, 0);
+	\draw[thick, fill=gray!80] (1, -4) rectangle +(2, -2);
+	\draw[thick, fill=gray!40] (1, -1) rectangle +(2, -2);
+	\draw[spring] (2, -3) -- (2, -4);
+	\draw[<->] (5, -2) -- (5, -5)node[midway, right]{?};
+	\draw[dashed] (4, -2) -- (5, -2);
+	\draw[dashed] (4, -5) -- (5, -5);
+\end{tikzpicture}

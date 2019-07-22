@@ -1,0 +1,66 @@
+\input{../../input/preamble.tex} %% Главный файл с разметкой страницы шрифтами и пакетами
+\input{../../input/preamble_tikz.tex} %% Картиночки
+\input{../../input/preamble_headers.tex} %% Оформление заголовков
+
+\usepackage{libertine}
+
+\begin{document}
+\OlympSetRegRussia{18/19}{9}{1}
+{
+\task{\input{Problems/reg19-09-1.tex}}
+\taskpic{\input{Problems/reg19-09-2.tex}}
+		{\vspace*{0.01mm}\input{Problems/Pic/reg19-09-2-tikzpic.tex} }
+\task{	 \input{Problems/reg19-09-3.tex}}
+\task{	 \input{Problems/reg19-09-4.tex}}
+\task{	 \input{Problems/reg19-09-5.tex} }
+\vspace{20pt}
+\begin{center}
+	\begin{tikzpicture}[scale=1.5]
+  \draw[step=0.25, gray, very thick] (-2.5,1) grid (4.5, -1);
+  \fill (-2, 0) circle[radius=0.8mm];
+  \fill (1.5, 0) circle[radius=0.8mm];
+  \fill (3.5, 0) circle[radius=0.8mm];
+  \fill (4, 0) circle[radius=0.8mm];
+  \fill (3, 0) circle[radius=0.8mm];
+  \fill (0.5, 0) circle[radius=0.8mm];
+  \draw (-0.5, -1) -- (-0.5, -0.8);
+  \draw (0.5, -1) -- (0.5, -0.8);
+  \draw[<->, very thick] (-0.5, -0.9) -- (0.5, -0.9);
+  \node at (0, -1.15) {\bf{$4$ см}};
+\end{tikzpicture}
+\end{center}
+}
+\clearpage
+
+\OlympSetRegRussia{18/19}{9}{2}
+{
+\task{	 \input{Problems/reg19-09-1-a.tex} }
+\taskpic{\input{Problems/reg19-09-2-a.tex}}
+		{\vspace*{0.01mm}\input{Problems/Pic/reg19-09-2-a-tikzpic.tex} }
+%\taskpic{\input{Problems/reg18-09-2-a.tex} }
+%        {\includegraphics[width=4cm]{Problems/Pic/reg18-09-2-a.pdf}}
+\task{\input{Problems/reg19-09-3-a.tex}}
+\task{\input{Problems/reg19-09-4-a.tex}}
+%\taskpic{\input{Problems/reg18-09-4-a.tex} }
+%		{\vspace*{0.01mm}\input{Problems/Pic/reg18-09-4-tikzpic.tex} }
+%\taskpic{\input{Problems/reg19-09-5-a.tex} }
+%        {\includegraphics[width=4cm]{Problems/Pic/reg18-09-5.pdf}}
+\task{	 \input{Problems/reg19-09-5-a.tex} }
+\begin{center}
+	\begin{tikzpicture}[scale=1.5]
+  \draw[step=0.25, gray, very thick] (-2.5,1) grid (4.5, -1);
+  \fill (-2, 0) circle[radius=0.8mm];
+  \fill (1.5, 0) circle[radius=0.8mm];
+  \fill (3.5, 0) circle[radius=0.8mm];
+  \fill (4, 0) circle[radius=0.8mm];
+  \fill (3, 0) circle[radius=0.8mm];
+  \fill (0.5, 0) circle[radius=0.8mm];
+  \draw (-0.5, -1) -- (-0.5, -0.8);
+  \draw (0.5, -1) -- (0.5, -0.8);
+  \draw[<->, very thick] (-0.5, -0.9) -- (0.5, -0.9);
+  \node at (0, -1.15) {\bf{$5$ см}};
+\end{tikzpicture}
+\end{center}
+}
+
+\end{document}

@@ -1,0 +1,46 @@
+\input{../../input/preamble.tex} %% Главный файл с разметкой страницы шрифтами и пакетами
+\input{../../input/preamble_tikz.tex} %% Картиночки
+\input{../../input/preamble_headers.tex} %% Оформление заголовков
+\input{../../input/preamble_grading}
+\usepackage{libertine}
+
+\gradetrue
+\newcommand{\flash}[5]{\draw[#4] (#1-0.01*#3, #2)node[below]{\scriptsize{$#5$}} -- +(0, 1.2*#3) -- +(-0.3*#3, 1.5*#3) arc (-20:-340:0.07*#3 and 0.03*#3) -- (#1+0.01*#3, #2 + 1.2*#3) -- (#1+0.01*#3, #2) arc (0:-180:0.01*#3 and 0.007*#3);}
+\begin{document}
+\gradeHead{7}
+\section*{Вариант 1}\firsttrue\secondfalse
+\subsection{Камеры}
+\input{Solutions/reg19-07-1-s.tex}
+\clearpage
+\subsection{Мыло}
+\input{Solutions/reg19-07-2-s.tex}
+\clearpage
+\subsection{Дорожная}
+\input{Solutions/reg19-07-3-s.tex}
+\clearpage
+\subsection{Пулемет и поезд}
+\input{Solutions/reg19-07-4-s.tex}
+\clearpage
+\subsection{Эскалатор}
+\input{Solutions/reg19-07-5-s.tex}
+\clearpage
+%%%%%%%%%
+\gradeHead{7}
+\section*{Вариант 2}\firstfalse\secondtrue
+\subsection{Камеры}
+\input{Solutions/reg19-07-1-s.tex}
+\clearpage
+\subsection{Мыло}
+\input{Solutions/reg19-07-2-s.tex}
+\clearpage
+\subsection{Дорожная}
+\input{Solutions/reg19-07-3-s.tex}
+\clearpage
+\subsection{Пулемет и поезд}
+\input{Solutions/reg19-07-4-s.tex}
+\clearpage
+\subsection{Эскалатор}
+\input{Solutions/reg19-07-5-s.tex}
+\clearpage
+
+\end{document}

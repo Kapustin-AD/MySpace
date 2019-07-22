@@ -1,0 +1,30 @@
+%% Макрос для разбалловок
+\newif\ifgrade
+\gradefalse
+
+\usepackage{xstring}
+\newenvironment{grade-env}{ \begin{itemize} }{ \end{itemize} }
+\newcommand{\grade}[2]{\item 
+\IfInteger{#1}{
+\ifnum #1=1  \textbf{#1 балл}~---  #2 \else 
+	\ifnum #1 < 5 \textbf{#1 балла}~---  #2 \else 
+		\textbf{#1 баллов}~---  #2 
+	\fi 
+\fi }{ \textbf{#1 балла}~---  #2  }
+}
+
+\newcommand{\olympanswer}[1]{\par \underline{\textbf{Ответ:}} #1}
+\setlength{\parindent}{12pt}
+\setlength{\parskip}{6pt}
+
+\usepackage{titlesec}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\titleformat{\subsection} {\large\bfseries} {Задача \thesubsection. } {4pt} {}
+\titleformat{\section} {\huge\bfseries\filcenter} {} {4pt} {}
+
+
+\newcommand{\gradeHead}[1]{  
+\begin{center}
+\section{	Возможные решения задач. #1 класс}
+\end{center}
+}

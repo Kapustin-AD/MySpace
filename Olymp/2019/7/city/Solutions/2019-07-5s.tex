@@ -1,0 +1,58 @@
+\begin{center}
+	\begin{tikzpicture}[scale = 0.7]
+		\fill[rounded corners = 5, fill = blue!15] (0, 0) -- (0, -7) -- (4, -7) -- (4, 0); 
+		\fill[yellow!50!red!100] (0, -2) rectangle +(4, -3);
+		\fill[white] (0, 0) rectangle +(4, -2);
+		\draw (0, -2) -- (4, -2);
+		\draw (0, -5) -- (4, -5);
+		\draw[thick, rounded corners = 5] (0, 0) -- (0, -7) -- (4, -7) -- (4, 0);
+		\draw[thick, fill=gray!80] (1, -4) rectangle +(2, -2);
+		\draw[thick, fill=gray!40] (1, -1) rectangle +(2, -2);
+		\draw[spring] (2, -3) -- (2, -4);
+		\draw[<->] (5, -2) -- (5, -5)node[midway, right]{h};
+		\draw[dashed] (4, -2) -- (5, -2);
+		\draw[dashed] (4, -5) -- (5, -5);
+	\end{tikzpicture}
+\end{center}
+
+Пусть массы тел $m_1$ и $m_2$, жесткость пружины $k$, а $l$ и $\Delta x$ --- ее длина и перемещение, $a$ --- длина ребра кубика, $\rho_1$ и $\rho_2$ --- плотности масла и воды. 
+
+Так как тела покоятся, равнодействующая всех сил, действующих на каждое тело равна нулю. 
+
+На верхнее тело действуют сила тяжести $m_1 g$, сила упругости $k \Delta x$ и сила Архимеда $\rho_1 g \frac{a^3}{2}$, где $\rho_1$ это плотность масла. Учитывая направления этих сил и считая, что пружина растянута можно написать
+\begin{equation}
+	m_1 g = \rho_1 g \frac{a^3}{2} - k \Delta x.
+\end{equation}
+
+Для второго тела ситуация аналогична, только сила Архимеда выражается сложнее и сила упругости направлена в другую сторону, поэтому
+\begin{equation}
+	m_2 g = \rho_2 g \frac{a^3}{2} + \rho_1 g \frac{a^3}{2} + k \Delta x.
+\end{equation}
+
+Найдем растяжение пружины. Зная, что $\frac{m_1}{m_2} = \frac{1}{3}$ запишем
+\begin{equation}
+	\label{dx} \frac{\rho_1 g \frac{a^3}{2} - k \Delta x}{\rho_2 g \frac{a^3}{2} + \rho_1 g \frac{a^3}{2} + k \Delta x} = \frac{1}{3}.
+\end{equation}
+Из получившегося соотношения можно выразить $\Delta x$ формульно или сразу подставив числа. Формульный результат имеет вид
+\begin{equation}
+	\Delta x = \frac{3}{4} \frac{g\frac{a^3}{2}}{k} \frac{2\rho_1 - \rho_2}{3} = \frac{g a^3}{8 k} (2\rho_1 - \rho_2).
+\end{equation}
+После подстановки чисел $\Delta x = 1\text{ см}$.
+
+Теперь поймем, как удлинение пружины связано с высотой столба масла $h$. Из рисунка понятно, что
+\begin{equation}
+	\Delta x = h -\frac{a}{2} -\frac{a}{2} - l, 
+\end{equation}
+где $l$ --- начальная длина пружины. Тогда $h = 21\text{ см}$
+
+\olympanswer{21 см.}
+
+\ifgrade
+\begin{grade-env}
+	\grade{2}{Условин равновесия первого кубика,}
+	\grade{2}{Условин равновесия второго кубика,}
+	\grade{1}{Получение соотношения для нахождения $\Delta x$ (\ref{dx}),}
+	\grade{1}{Связь $\Delta x$ и $h$,}
+	\grade{2}{Ответ.}
+\end{grade-env}
+\fi

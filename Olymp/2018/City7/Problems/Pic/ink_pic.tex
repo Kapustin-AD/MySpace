@@ -1,0 +1,19 @@
+\begin{tikzpicture}[scale = 1.5]
+	\draw[step=0.5,black,thin] (0, 0) grid (4, -3); 
+	\draw [<->] (0.5, 0.1) -- (1, 0.1)node[midway, above]{$0{,}5~\text{см}$};
+%	\draw[dashed] (1, 0) -- (1, 0.4);
+%	\draw[dashed] (0.5, 0) -- (0.5, 0.4);
+	\draw[ultra thick] (0.5, -0.5) -- (1.5, -0.5) -- (1.5, -1.5) -- (0.5, -1.5) -- cycle;
+	\draw[ultra thick] (0.5, -1.5) -- (1.5, -1.5) -- (1.5, -2.5) -- (0.5, -2.5) -- cycle;
+	\draw[ultra thick] (1.5, -0.5) -- (2.5, -0.5) -- (2.5, -1.5) -- (1.5, -1.5) -- cycle;
+	\draw[ultra thick] (1.5, -1.5) -- (2.5, -1.5) -- (2.5, -2.5) -- (1.5, -2.5) -- cycle;
+	\draw[ultra thick] (2.5, -0.5) -- (3.5, -0.5) -- (3.5, -1.5) -- (2.5, -1.5) -- cycle;
+	\draw[ultra thick] (2.5, -1.5) -- (3.5, -1.5) -- (3.5, -2.5) -- (2.5, -2.5) -- cycle;
+	\draw (1, -1)node{\Huge{$1$}};
+	\draw (2, -1)node{\Huge{$2$}};
+	\draw (3, -1)node{\Huge{$3$}};	
+	\draw[line width = 3pt, red] (0.75, -2) -- (1.25, -2);
+	\draw[line width = 3pt, red] (1.75, -1.75) -- (2.25, -1.75) -- (2.25, -2.25) -- (1.75, -2.25) -- cycle;
+	\draw[line width = 3pt, red] (2.75, -1.75) -- (2.75, -2.25);
+	\draw[line width = 3pt, red] (3, -1.75) -- (3.5, -1.75) -- (3.5, -2.25) -- (3, -2.25) -- cycle;
+\end{tikzpicture}

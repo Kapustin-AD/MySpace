@@ -1,0 +1,30 @@
+\variants{
+\begin{tikzpicture}
+	\pgfmathsetmacro{\a}{.4};
+	\platform{(6.5*\a,0)}{(-1.5*\a,0)};
+	\draw [very thick]
+		  (0, 0) rectangle ++ (\a, \a)
+		  (2*\a, 0) |- (2.5*\a, 3*\a) |- (3*\a, 5*\a) |- (3.5*\a, 6*\a)
+		  -| (4*\a, 5*\a) -| (4.5*\a, 3*\a) -| (5*\a, 0) to cycle;
+	\draw [dashed] (2.5*\a, 3*\a) to ++ (2*\a, 0)
+				   (3*\a, 5*\a) to ++ (\a, 0);
+	\draw [<->] (5.2*\a,0) to node [midway, right] {$3a$} ++ (0, 3*\a);
+	\draw [<->] (4.7*\a,3*\a) to node [midway, right] {$2a$} ++ (0, 2*\a);
+	\draw [<->] (4.2*\a,5*\a) to node [midway, right] {$a$} ++ (0, 1*\a);
+	\draw [<->] (-.2*\a,0) to node [midway, left] {$a$} ++ (0, \a);
+\end{tikzpicture}
+}{
+\begin{tikzpicture}
+	\pgfmathsetmacro{\a}{.4};
+	\platform{(6.5*\a,0)}{(-1.5*\a,0)};
+	\draw [very thick]  (0, 0) rectangle ++ (\a, \a);
+	\draw [very thick]  
+			(3*\a, 0) |- (2.5*\a, \a) |- (2*\a, 3*\a) |- (3.5*\a, 6*\a)  -| (5*\a, 3*\a) -| (4.5*\a, \a) -| (4*\a, 0) to cycle;
+	\draw [dashed] (2.5*\a, 3*\a) to ++ (2*\a, 0)
+				   (3*\a, \a) to ++ (\a, 0);
+	\draw [<->] (5.2*\a,3*\a) to node [midway, right] {$3a$} ++ (0, 3*\a);
+	\draw [<->] (4.7*\a,\a) to node [midway, right] {$2a$} ++ (0, 2*\a);
+	\draw [<->] (4.2*\a,0) to node [midway, right] {$a$} ++ (0, 1*\a);
+	\draw [<->] (-.2*\a,0) to node [midway, left] {$a$} ++ (0, \a);
+\end{tikzpicture} 
+}

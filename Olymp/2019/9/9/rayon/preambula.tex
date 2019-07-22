@@ -1,0 +1,248 @@
+\documentclass[11pt,a4paper,onecolumn]{article}
+
+\usepackage{amssymb,amsmath,amsfonts}
+\usepackage{bm}
+\usepackage[margin=1.5cm]{geometry}			
+\usepackage{indentfirst,misccorr}
+\usepackage{calc}
+\pagestyle{empty}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% ШРИФТЫ
+\usepackage{ifpdf}
+% if pdflatex, then
+\ifpdf
+	\usepackage[utf8]{inputenc}
+	\usepackage[T2A]{fontenc}
+	\usepackage[russian]{babel}
+	\usepackage[unicode]{hyperref}
+	\usepackage[pdftex]{graphicx}
+	%\usepackage[pdftex]{graphicx}
+%	\usepackage{cmlgc}
+\else % if xelatex, then
+	\usepackage{unicode-math}
+	%\usepackage{fouriernc}
+	% xelatex specific packages
+	\usepackage[xetex]{hyperref}
+	\usepackage{xltxtra} % \XeLaTeX macro
+	\usepackage{xunicode} % some extra unicode support
+	\defaultfontfeatures{Mapping = tex-text}
+	\usepackage{polyglossia} % instead of babel in xelatex
+	\usepackage{indentfirst} %
+	\setdefaultlanguage[spelling = modern]{russian}
+	\setotherlanguage{english} %% объявляет второй язык документа
+	\newfontfamily\cyrillicfont{Linux Libertine}
+	\setmainfont{Linux Libertine}
+	\setmonofont{Consolas}
+	\setsansfont{Linux Biolinum O}
+	\setmathfont{Cambria Math}
+\fi
+
+
+% УСЛОВИЯ ЗАДАЧ
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{enumitem}
+% счётчик задач
+\newcounter{notask}
+\setcounter{notask}{1}
+
+% \task{УСЛОВИЕ ЗАДАЧИ}
+% задача без картинки
+% оформлена как таблица с двумя колонками
+% ширина первой колонки (номер столбца) фиксирована, 0.3cm
+% ширина второй колонки автоматически рассчитывается из ширины
+% страницы (с учётом всевозможных отступов)
+\newcommand{\task}[1]{
+	\begin{tabularx}{\textwidth}{|c|X|}
+		\cline{1-2}
+		\makecell*[{{p{0.5cm}}}]{ \centering \arabic{notask}} &
+		\makecell*[{{p{\hsize}}}]{ #1 } \\
+		\cline{1-2}
+	\end{tabularx}
+	
+	\vspace{-1pt}
+	
+	\addtocounter{notask}{1}
+}
+
+
+% \taskpic[ШИРИНА КАРТИНКИ]{УСЛОВИЕ ЗАДАЧИ}{КАРТИНКА}
+% задача с картинкой
+% оформлена как таблица с тремя колонками
+% первый аргумент - необязательный, по умолчанию ширина картинки равна
+% 4cm, но можно выставить свою
+% ширина второй колонки (условие задачи) рассчитывается из ширины
+% страницы и ширины картинки
+\newcommand{\taskpic}[3][4cm]{
+	\begin{tabularx}{\textwidth}{|c|X|c|}
+		\cline{1-3}
+		\makecell*[{{p{0.5cm}}}]{ \centering \arabic{notask}} &
+		\makecell*[{{p{\hsize}}}]{ #2 } &
+		\makecell*[{{p{#1}}}]{ \centering #3} \\
+		\cline{1-3}
+	\end{tabularx}
+	
+	\vspace{-1pt}
+	
+	\addtocounter{notask}{1}
+}
+
+
+% Здесь идут команды для tikz если они будут конфликтными надо расскоментировать следующую строчку
+%\endinput
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{wrapfig}
+\usepackage{subfig}
+
+% основные библиотеки tikz
+\usetikzlibrary{
+	arrows,
+	calc,
+	patterns,
+	intersections,
+	decorations.pathreplacing,
+	decorations.pathmorphing,
+	decorations.text,
+	decorations.markings,
+	shapes,
+	positioning
+}
+
+% библиотеки для электричества
+\usetikzlibrary{circuits.ee, circuits.ee.IEC}
+
+% для работы с графиками            
+\pgfplotsset{compat = newest}
+
+% основные используемые стили
+% стиль для стрелки
+\tikzset{
+	>=latex,
+	% платформа: пол или потолок  
+	interface/.style = {
+		postaction = {
+			draw,
+			decorate,
+			decoration = {
+				border,
+				angle = 45,
+				amplitude = 0.2cm,
+				segment length = 1mm
+			}
+		}
+	},
+	% пружина  
+	spring/.style = {
+		decorate,
+		decoration = {
+			coil,
+			amplitude = 1mm,
+			segment length = 1mm
+		},
+		thick
+	},
+	% заряд, вершина, просто точка
+	dot/.style = {
+		inner sep = 0mm,
+		minimum size = 0.18cm,
+		fill,
+		circle
+	},
+	% стрелка в середине отрезка  
+	marrow/.style = {
+		postaction = {
+			draw,
+			decorate,
+			decoration = {
+				markings,
+				mark = at position 0.6 with {\arrow{latex}}
+			}
+		}
+	}
+}
+
+
+\tikzstyle{dotnode} = [draw, fill, inner sep = 0pt, minimum size = 1mm, circle]
+
+\tikzstyle{termnode} = [draw, fill = white, inner sep = 0pt, minimum size = 1.5mm, circle]
+
+\newcommand{\termcircuit}[2]{
+	\node[termnode] at ({#1}, {#2}) {};
+	\draw ({#1 + 0.12}, {#2 + 0.15}) -- ({#1 - 0.12}, {#2 - 0.15});
+}
+
+
+
+
+% обозначение угла
+\tikzset{
+	arcnode/.style = {
+		decoration = {
+			markings,
+			raise = 2mm,
+			mark = at position 0.5 with {
+				\node[inner sep = 0] {#1};
+			}
+		},
+		postaction = {decorate}
+	}
+}
+
+% команда для отметки угла: проводит дугу между двумя лучами,
+% проведёнными между точками #2--#3 и #2--#4
+% первый аргумент - необязательный, стиль линии
+% #2,#3,#4 - точки
+% #5 - радиус дуги для обозначения угла
+% #6 - обозначение угла, например, $\alpha$
+\newcommand*\marktheangle[6][]{
+	\draw[thick, arcnode = {#6}, #1] let \p2 = ($(#3)-(#2)$),
+	\p3 = ($(#4)-(#2)$),
+	\n2 = {atan2(\x2,\y2)},
+	\n3 = {atan2(\x3,\y3)}%
+	in ($(\n2:#5)+(#2)$) arc (\n2:\n3:#5);
+}
+
+
+% амперметр
+\tikzset{circuit declare symbol = ammeter}
+\tikzset{
+	set ammeter graphic = {
+		draw,
+		generic circle IEC,
+		minimum size = 5mm,
+		info=center:A
+	}
+} 
+
+% вольтметр
+\tikzset{circuit declare symbol = voltmeter}
+\tikzset{
+	set voltmeter graphic = {
+		draw,
+		generic circle IEC,
+		minimum size = 5mm,
+		info=center:V
+	}
+} 
+
+% кружок
+\tikzset{circuit declare symbol = meter}
+\tikzset{
+	set meter graphic = {
+		draw,
+		generic circle IEC,
+		minimum size = 5mm
+	}
+} 
+
+
+\newcommand{\platform}[2]{
+	\draw [draw = none, pattern = north west lines] 
+	#1 -- ( $#1!0.15cm!90:#2$ ) -- ( $#2!0.15cm!-90:#1$ ) -- #2;
+	\draw #1 -- #2
+}
+

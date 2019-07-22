@@ -1,0 +1,218 @@
+\documentclass[serif,professionalfonts]{beamer}
+%\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{xfrac}
+\usepackage{tikz}
+\usepackage{libertine}
+
+\usetheme{Madrid}
+\setbeamertemplate{navigation symbols}{}
+%\logo{\includegraphics[width=1cm]{eagle2.eps}}
+\begin{document}
+\title[Embedding theory and mimetic gravity]{Similarities between the embedding theory and the mimetic gravity}
+\author[\textbf{Kapustin}, Paston]{\textbf{A.D. Kapustin}, S.A. Paston}
+\titlegraphic{\includegraphics[width=2cm]{eagle2.eps}}
+\institute[SPbU]{Saint Petersburg State University, \\
+Department of High Energy and Elementary Particles physics.}
+\date{}
+\maketitle
+
+\begin{frame}
+\frametitle{Outline of the presentation}
+
+\begin{itemize}
+	\item{Mimetic gravity, embedding theory and their field equation}
+	\item{Equivalent forms of actions}
+	\item{Embedding gravity and mimetic limit}
+	\item{Solution in case of weak gravitational field} 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Mimetic gravity and Dark matter}
+
+Action
+\begin{equation}
+	S^{EH} + S_m= \int d^4x \sqrt{-g}\left( \frac{R}{2 \varkappa} + \mathcal{L}_m \right)
+\end{equation}
+with substitution
+\begin{equation}
+	g_{\mu \nu} = \bar{g}_{\mu \nu} \bar{g}^{\alpha \beta} \partial_{\alpha} \lambda \partial_{\beta} \lambda
+\end{equation}
+leads to field equations
+\begin{align}
+	G_{\mu \nu} &= \varkappa \left(T_{\mu \nu} + n u_{\mu} u_{\nu} \right) \\
+	D_{\mu} (n u^{\mu}) &= 0\\
+	g^{\mu \nu} u_{\mu} u_{\nu} &= 1
+\end{align}
+with $n = \left( \frac{1}{\varkappa} G - T \right)$ and $u_{\mu} = \partial_{\mu} \lambda$
+
+\
+
+So the term $n u^{\mu} u^{\nu}$ corresponds to some dustlike ``dark'' matter ``without additional matter'' in theory
+
+\textit{\small{A.H. Chamseddine, V. Mukhanov, JHEP, 2013:11 (2013), 135, arXiv:1308.5410}}
+\end{frame}
+
+\begin{frame}
+\frametitle{Embedding theory}
+\begin{equation}
+	S^{EH} + S_m= \int d^4x \sqrt{-g}\left( \frac{R}{2 \varkappa} + \mathcal{L}_m \right)
+\end{equation}
+Einstein-Hilbert action with substitution
+\begin{equation}
+	g_{\mu \nu} = \partial_{\mu} y^a \partial_{\nu} y_a, \ \ \ \ a = 0, 1, \ldots , 9
+\end{equation}
+leads to Regge-Teitelboim equations
+\begin{equation}
+	D_{\mu} \left( (G^{\mu \nu}-\varkappa T^{\mu \nu})\partial_{\nu}y^a\right) = 0
+\end{equation}
+which could be rewritten in the form
+\begin{align}
+	G_{\mu \nu} &= \varkappa \left( T_{\mu \nu} + \tau_{\mu \nu} \right) \\
+	D_{\mu} \left(\tau^{\mu \nu} \partial_{\nu} y^a \right)& = 0
+\end{align}
+\end{frame}
+
+\begin{frame}
+\frametitle{Similarity between the embedding and mimetic gravity}
+
+The equivalent set of field equation could be obtained by using the additional action
+\begin{equation}
+	S^{EH} + S_m + S^{+}
+\end{equation}
+Among the different variants $S^{+}$ can be chosen in the similar form for both mimetic gravity and embedding theory
+
+Mimetic gravity
+\begin{equation}
+	S^{+} = \int d^4x \sqrt{-g} \left( j^{\mu} \partial_{\mu}y - \sqrt{j^{\mu} g_{\mu \nu} j^{\nu}}\right)
+\end{equation}
+\textit{\small{S.A.Paston, Phys.Rev.D, 96 (2017), 084059, arXiv:1708.03944.}}
+
+Embedding gravity
+\begin{equation}
+	S^{+} = \int d^4x \sqrt{-g} \left( j^{\mu}_{a} \partial_{\mu}y^a - tr \sqrt{\eta^{ab}j^{\mu}_{a} g_{\mu \nu} j^{\nu}_{c}}\right)
+\end{equation}
+\textit{\small{S.A.Paston, Eur. Phys. J. C, 78:12 (2018), 989, arXiv:1806.10902.}}
+\end{frame}
+
+
+\begin{frame}	
+In the last form embedding gravity leads to the set of equations
+\begin{align}
+\label{y}	\partial_{\mu} y^a &= \beta^{-1}_{\mu \nu} j^{\nu a} \\
+	D_{\mu} j^{\mu}_{a} &= 0 \\
+	G_{\mu \nu} &= \varkappa \left( T_{\mu \nu} + \beta_{\mu \nu} \right) 
+\end{align}
+with $\beta_{\nu \alpha} = \sqrt{\eta^{ab}j^{\mu}_{a} g_{\mu \nu} j_{\alpha b}}$
+
+\
+
+If matrix $\beta$ has the rank $1$ the theory is equivalent to mimetic gravity with dust-like
+EMT of additional matter
+
+The most general limit giving the mimetic matter is
+\begin{equation}
+	j^{\mu}_a = j^{\mu} N_a + h^{\mu}_a, \ \ \ \ \text{with} \ \ h^{\mu}_a \to 0 
+\end{equation}
+with arbitrary vector $N_a$ in ambient space
+
+There is a question what happens to geometry in this limit because equations (\ref{y}) defining embedding functions become singular
+\end{frame}
+
+\begin{frame}
+\frametitle{Tetrad formalism and SVD}
+It is convenient to study this limit using the tetrad formalism for GR. Then the metric is expressed through the tetrad $e_{\mu}^A$
+\begin{equation}
+	g_{\mu \nu} = e_{\mu}^A \eta_{AB} e_{\nu}^B
+\end{equation}
+where capital Latin characters correspond to gauge $SO(1,3)$ symmetry
+
+The aim is to rewrite $j_{\mu}^a$ in the form
+\begin{equation}
+\label{j}
+	j_{\mu}^a = \sum \limits_{A=0}^{3} \rho_{(A)} e_{\mu}^A n_A^a \ \ \ \ \text{with} \ \ n_A^a n_{Ba} = \eta_{AB}
+\end{equation}
+In Euclidean space it is always possible for every rectangular matrix due to Singular Value Decomposition,while in pseudo Euclidean space it requires additional restriction  
+
+The mimetic limit then is reformulated in the form of $\rho_{(1,2,3)} \to 0$
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution in case of weak gravitational field}
+Using the decomposition (\ref{j}) the field equations of the embedding gravity could be rewritten in the form
+\begin{equation}
+\label{20}
+	\partial_{\mu} y^a = e_{\mu}^{\ A} n_{A}^{\ a}
+\end{equation} 
+\begin{equation}
+\label{21}
+	D_{\mu}\left( e^{\mu}_{\ A} \Lambda^{AB} n_{B}^{\ a} \right) = 0
+\end{equation}
+\begin{equation}
+\label{22}
+	G_{\mu \nu} = \varkappa \left( T_{\mu \nu} + e_{\mu}^{\ A} \Lambda_{A B} e_{\nu}^{\ B} \right)
+\end{equation}
+with $\Lambda^{A B} = diag(\rho_0, \rho_1, \rho_2, \rho_3)$ and covariant derivative $D_{\mu}$ defined by the following rules
+\begin{equation}
+	D_{\mu} \phi = \partial_{\mu} \phi, \ \ \ \ D_{\mu} k^{\nu} = \partial_{\mu} k^{\nu} + \Gamma^{\nu}_{\mu \sigma} k^{\sigma}, \ \ \ \ D_{\mu} k_{A} = \partial_{\mu} k_{A} + W_{\mu \ A}^{\ C} k_{C} 
+\end{equation}
+Here $W_{\mu \ A}^{\ C}$ is gauge connection and $\Gamma^{\nu}_{\mu \sigma}$ is Riemannian connection 
+\end{frame}
+
+\begin{frame}
+We will solve this equations in the limit of small gravitational field, the mimetic limit $\rho_{1,2,3}=0$ and $T_{\mu \nu} = 0$ simultaniously
+
+Then $g^{\mu \nu} = \eta^{\mu \nu} + \varkappa \, h^{\mu \nu}$, in static case $h^{00} = - 2 \varphi $
+\begin{equation}
+	e^{\mu}_{\ A}  = \delta_{A}^{\mu} + \frac{\varkappa}{2} \, h_{A}^{\mu} + \varkappa \, \alpha^{\mu} _{\ A}, \ \ \text{$h$ --- symmetric, $\alpha$ --- anti-symmetric}
+\end{equation}
+\begin{equation}
+	n_{A}^{\ a} = \delta_{A}^{a} + \sqrt{\varkappa} \, \beta_{A}^{\ a} + \frac{\varkappa}{2} \, \beta_{A}^{\ b} \beta_{b}^{\ a}, \ \ \text{$\beta$ --- anti-symmetric}
+\end{equation}
+The gauge connections could be found from the restrictions $D_{\mu} e^{\nu}_{\ A} = 0$
+\begin{equation}
+	W_{\mu \ A}^{\ B} = \varkappa \, \left[ \frac{1}{2} \left( \partial_B h^{A}_{\mu} - \partial^{A} h_{B \mu} \right) - \partial_{\mu} \alpha^{A}_{\ B} \right]
+\end{equation}
+The equations (\ref{21}) --- (\ref{22}) in a first nontrivial order turns into a set of restrictions
+\begin{equation}
+\begin{split}
+	\partial_0 \rho_0 = 0, \ \ \partial^{I} \left( \rho \, \alpha^{0}_{\ I} \right) &= 0, \ \ \partial_0 \alpha^{0}_{\ I} = -\partial_{I} \varphi \\
+	\partial_0 \beta_{0}^{\ a} &= 0
+\end{split}
+\end{equation}
+\end{frame}
+
+\begin{frame}
+	A remaining freedom in parameters $\alpha$ and $\beta$ could be found by solving the equation
+\begin{equation}
+	\partial_{\mu} y^a = e_{\mu}^{\ A} n_{A}^{\ a}
+\end{equation}
+which could be equivalently replaced by
+\begin{equation}
+	D_{\nu} e_{\mu}^{\ A} n_{A}^{\ a} - D_{\mu} e_{\nu}^{\ A} n_{A}^{\ a} = 0
+\end{equation}
+
+The particular solution with $\alpha^{I}_{\ K} = 0, \beta_{A}^{\ B} = 0$ leads to the embedding functions
+\begin{align}
+	y^0 &= t + t \, \varkappa \, \varphi + \frac{3}{2} \, \varkappa \, t \nonumber \\
+	y^{I} &= x^{I} - \varkappa \, \frac{t}{2} \, \alpha^{I}_{\ 0} \nonumber \\
+	y^4 = \sin{\omega_1(x)} \ \ \ \ y^6 &= \sin{\omega_2(x)} \ \ \ \ y^8 = \sin{\omega_3(x)} \\
+	y^5 = \sin{\omega_1(x)} \ \ \ \ y^7 &= \sin{\omega_2(x)} \ \ \ \ y^9 = \sin{\omega_3(x)} \nonumber \\
+	\text{where} \ \  \partial_I \partial_K \varphi &= \sum \limits_{n = 1}^{3} \partial_I \, \omega_n(x) \partial_K \, \omega_n(x) 
+\end{align}
+
+A general solution is expected to be found in the near future.
+\end{frame}
+
+\begin{frame}
+\begin{center}
+	\Large{Thank you for your attention!}
+\end{center}
+\end{frame}
+\end{document}

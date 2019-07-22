@@ -1,0 +1,146 @@
+\variants{
+	 \begin{tikzpicture}[
+	 	/pgfplots/axis labels at tip/.style={ 
+	 		xlabel style={ at={ (current axis.right of origin) }, 
+	 			yshift = 1 ex,
+	 			anchor = south east,
+	 			fill=white}, 
+	 		ylabel style={ at={ (current axis.above origin) }, 
+	 			xshift = 1 ex, 
+	 			anchor = north west,
+	 			fill = white} } ]
+	  \begin{axis}[
+	  	date coordinates in=x,
+	  	date ZERO=2018-08-21,
+	    xticklabel=\day.\month,
+	    ymin=50, ymax=77,
+		xmin=2018-08-21,
+		xmax=2018-09-18,
+		xticklabel style={
+		rotate=90,
+			anchor=near xticklabel,
+		},
+		line width = 2pt, 
+		axis x line = middle,
+		axis y line = middle,
+		axis labels at tip,		       	  
+	    xlabel = {день},
+		ylabel = {$m_\text{ср}$, г},
+		grid = both,
+		major grid style={line width = 1.3pt,draw=black!50},
+		minor grid style={line width=.4pt, draw=black!50},
+		major tick length = 7pt,
+	    every major tick/.style={
+			black,
+	        line width = 2pt,
+        },
+		minor tick length = 4pt,
+	    every minor tick/.style={
+			black,
+	        line width = 1pt,
+        },
+		minor tick num = 4
+	   ]
+	   \addplot [only marks] coordinates  {
+	    (2018-08-22, 67.5)
+	    (2018-08-23, 68.25)
+	    (2018-08-24, 69.5)
+	    (2018-08-25, 71)
+	    (2018-08-26, 72)
+	    (2018-08-27, 72.225)
+	    (2018-08-28, 70.84)
+	    (2018-08-29, 69.23)
+	    (2018-08-30, 67.86)
+	    (2018-08-31, 66.67)
+	    (2018-09-01, 65.63)
+	    (2018-09-02, 64.70)
+	    (2018-09-03, 63.89)
+	    (2018-09-04, 63.16)
+	    (2018-09-05, 62.5)
+	    (2018-09-06, 61.90)
+	    (2018-09-07, 61.365)
+	    (2018-09-08, 60.87)	    
+	    (2018-09-09, 60.42)
+	    (2018-09-10, 60)
+	    (2018-09-11, 59.62)
+	    (2018-09-12, 59.26)	
+	    (2018-09-13, 58.93)
+	    (2018-09-14, 58.63)
+	    (2018-09-15, 58.34)
+	    (2018-09-16, 57.75)	        
+	   };
+ \end{axis}
+\end{tikzpicture}}{ 
+	 \begin{tikzpicture}[
+	 	/pgfplots/axis labels at tip/.style={ 
+	 		xlabel style={ at={ (current axis.right of origin) }, 
+	 			yshift = 1 ex,
+	 			anchor = south east,
+	 			fill=white}, 
+	 		ylabel style={ at={ (current axis.above origin) }, 
+	 			xshift = 1 ex, 
+	 			anchor = north west,
+	 			fill = white} } ]
+	  \begin{axis}[
+	  	date coordinates in=x,
+	  	date ZERO=2018-08-21,
+	    xticklabel=\day.\month,
+	    ymin=50, ymax=77,
+		xmin=2018-08-21,
+		xmax=2018-09-18,
+		xticklabel style={
+		rotate=90,
+			anchor=near xticklabel,
+		},
+		line width = 2pt, 
+		axis x line = middle,
+		axis y line = middle,
+		axis labels at tip,		       	  
+	    xlabel = {день},
+		ylabel = {$m_\text{ср}$, г},
+		grid = both,
+		major grid style={line width = 1.3pt,draw=black!50},
+		minor grid style={line width=.4pt, draw=black!50},
+		major tick length = 7pt,
+	    every major tick/.style={
+			black,
+	        line width = 2pt,
+        },
+		minor tick length = 4pt,
+	    every minor tick/.style={
+			black,
+	        line width = 1pt,
+        },
+		minor tick num = 4
+	   ]
+	   \addplot [only marks] coordinates  {
+	    (2018-09-16, 67.5)
+	    (2018-09-15, 68.25)
+	    (2018-09-14, 69.5)
+	    (2018-09-13, 71)
+	    (2018-09-12, 72)
+	    (2018-09-11, 72.225)
+	    (2018-09-10, 70.84)
+	    (2018-09-09, 69.23)
+	    (2018-09-08, 67.86)
+	    (2018-09-07, 66.67)
+	    (2018-09-06, 65.63)
+	    (2018-09-05, 64.70)
+	    (2018-09-04, 63.89)
+	    (2018-09-03, 63.16)
+	    (2018-09-02, 62.5)
+	    (2018-09-01, 61.90)
+	    (2018-08-31, 61.365)
+	    (2018-08-30, 60.87)	    
+	    (2018-08-29, 60.42)
+	    (2018-08-28, 60)
+	    (2018-08-27, 59.62)
+	    (2018-08-26, 59.26)	
+	    (2018-08-25, 58.93)
+	    (2018-08-24, 58.63)
+	    (2018-08-23, 58.34)
+	    (2018-08-22, 57.75)	        
+	   };
+ \end{axis}
+\end{tikzpicture}	   
+}
